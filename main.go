@@ -22,7 +22,7 @@ func CodigoLambda(ctx context.Context, event events.CognitoEventUserPoolsPostCon
 
 	if !ValidarParametros() {
 		fmt.Println("Faltan parametros, debe enviar SecretName")
-		err := errors.New("Error: Faltan parametros debe enviar SecretName")
+		err := errors.New("error: faltan parametros debe enviar SecretName")
 		return event, err
 	}
 	var datos models.SignUp
@@ -44,7 +44,8 @@ func CodigoLambda(ctx context.Context, event events.CognitoEventUserPoolsPostCon
 		return event, err
 	}
 
-	return event, nil 
+	err = dbconfig.SignUp(datos)
+	return event, err
 }
 
 func ValidarParametros() bool {
