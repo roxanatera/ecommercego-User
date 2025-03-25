@@ -6,11 +6,13 @@ import (
 	"github.com/aws/aws-sdk-go-v2/aws"
 )
 
-var Ctx context.Context
-var Cfg aws.Config
-var err error
+var (
+	Ctx context.Context
+	Cfg aws.Config
+	err error
+)
 
-func initAWS() {
+func InitAWS() {
 	Ctx = context.TODO()
 	Cfg, err = config.LoadDefaultConfig(Ctx, config.WithDefaultRegion("us-east-1"))
 
