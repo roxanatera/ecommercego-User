@@ -13,7 +13,10 @@ type SecretRDSJson struct {
 	Dbname string `json:"dbname"`
 }
 
+
 type SignUp struct {
-	UserEmail string `json:"userEmail"`
-	UserUUID string `json:"userUUID"`
+    UserUUID      string `json:"uuid"`
+    UserEmail     string `json:"email"`
+    UserFirstName string `json:"first_name"`
+    UserLastName  string `json:"last_name"`
 }
