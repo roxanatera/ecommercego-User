@@ -45,12 +45,19 @@ func DbConnect() error {
 }
 
 func ConnStr(claves models.SecretRDSJson) string {
-	 var dbUser, authToken, dbEnpoint, dbName, dbPort string
-	 dbUser = claves.Username
-	 authToken = claves.Password
-	 dbEnpoint = claves.Host
-	 dbName = "ecommercego"
-	 dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?allowCleartextPasswords=true", dbUser, authToken, dbEnpoint, dbPort, dbName)
-	 fmt.Println(dsn)
-	 return dsn
+	dbUser := claves.Username
+	authToken := claves.Password
+	dbEndpoint := claves.Host
+	dbName := "ecommercego"
+	
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?allowCleartextPasswords=true", 
+		dbUser, 
+		authToken, 
+		dbEndpoint, 
+		claves.Port, 
+		
+		dbName,
+	)
+	fmt.Println("DSN:", dsn)
+	return dsn
 }
