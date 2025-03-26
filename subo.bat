@@ -5,7 +5,7 @@ git push
 
 set GOOS=linux
 set GOARCH=amd64
-go build -o bootstrap main.go  # 👈 Compila como "bootstrap"
+go build -o bootstrap main.go 
 
 del main.zip 2> nul
 powershell -Command "Compress-Archive -Path .\bootstrap -DestinationPath .\main.zip"
