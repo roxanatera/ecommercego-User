@@ -1,8 +1,11 @@
+@echo off
 git add .
 git commit -m "update"
 git push
+
 set GOOS=linux
 set GOARCH=amd64
-go build main.go
-del main.zip
-tar.exe -a -cf main.zip main
+go build -o bootstrap main.go  # 👈 Compila como "bootstrap"
+
+del main.zip 2> nul
+powershell -Command "Compress-Archive -Path .\bootstrap -DestinationPath .\main.zip"
