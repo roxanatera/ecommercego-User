@@ -1,6 +1,7 @@
 package dbconfig
 
 import (
+	"context"
 	"database/sql"
 	_"github.com/go-sql-driver/mysql"
 	"e-commerce-go/models"
@@ -14,14 +15,14 @@ var SecretModel models.SecretRDSJson
 var Db *sql.DB
 var err error
 
-func ReadSecret() error {
+func ReadSecret(ctx context.Context) error {
 	secretName := os.Getenv("SecretName")
 	if secretName == "" {
 		return fmt.Errorf("SecretName no está definido en las variables de entorno")
 	}
 
 	var err error
-	SecretModel, err = secretmanager.GetSecret(secretName)
+	SecretModel, err = secretmanager.GetSecret(ctx, secretName)
 	return err
 }
 

@@ -40,11 +40,10 @@ func CodigoLambda(ctx context.Context, event events.CognitoEventUserPoolsPostCon
     fmt.Printf("Datos del usuario: %+v\n", datos)
 
     // Conectar a la base de datos
-    err := dbconfig.ReadSecret()
+    err := dbconfig.ReadSecret(ctx) 
     if err != nil {
         return event, fmt.Errorf("error al leer secreto: %v", err)
     }
-
     // Insertar en la base de datos
     err = dbconfig.SignUp(datos)
     if err != nil {
