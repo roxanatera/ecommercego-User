@@ -32,3 +32,17 @@ Sistema de autenticación para e-commerce que registra usuarios en **AWS Cognito
 │   ├── secretm.go   # Gestión de Secrets Manager
 └── models/
     └── models.go    # Estructuras de datos
+
+
+### Características clave:
+1. **Formato Markdown optimizado** para GitHub
+2. **Tablas claras** para tecnologías y versiones
+3. **Diagramas Mermaid** para flujos de trabajo
+4. **Secciones de solución de problemas**
+5. **Guía de contribución** estándar
+6. **Estructura de proyecto profesional**
+
+### Mejoras sugeridas:
+- Añadir badges de CI/CD y coverage
+- Incluir ejemplos de requests/responses
+- Añadir capturas de pantalla de la configuración AWS
